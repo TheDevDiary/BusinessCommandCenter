@@ -1,0 +1,54 @@
+# Ignore bin and obj directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore project-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore ReSharper files
+_ReSharper*/
+
+# Ignore Rider files
+.idea/
+
+# Ignore Visual Studio code files
+.vscode/
+
+# Ignore compiled binaries
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore packages folder
+packages/
+*.nupkg
+
+# Ignore logs and databases
+*.sqlite
+*.sdf
+
+# Ignore client-side dependencies
+node_modules/
+
+# Ignore the app settings file if it contains sensitive information
+/appsettings.json
+/appsettings.Development.json
+
+# Ignore Entity Framework Migrations
+/Migrations
