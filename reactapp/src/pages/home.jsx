@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const HomePage = () => {
+const Home = () => {
     const [message, setMessage] = useState('');
 
     useEffect(() => {
@@ -18,4 +18,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Home;
