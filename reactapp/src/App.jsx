@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomePage from './pages/home';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-
 import Sidebar from './components/Sidebar/Sidebar';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
@@ -14,12 +10,14 @@ import Transactions from './pages/Transactions';
 import HR from './pages/HR';
 import Projects from './pages/Projects';
 import './assets/styles.css'
+import Header from './components/Header/Header';
 
 export default class App extends Component {
     render() {
         return (
             <Router>
                 <div className="page">
+                    <Header />
                     <Sidebar />
                     <Routes>
                         <Route exact path='/' element={<Home />}></Route>
