@@ -12,8 +12,8 @@ import './header.css';
 function Header() {
   return (
       <Box className="header">
-          <AppBar position='sticky' disablegutters='true'>
-              <Toolbar>
+          <AppBar>
+              <Toolbar className="tool-bar">
                   <Avatar
                       sx={{ width: 40, height: 40 }}
                       alt='edupala profile'
