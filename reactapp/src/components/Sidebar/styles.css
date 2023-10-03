@@ -1,0 +1,4 @@
+.menuIcon:focus,
+.menuIcon:focus-visible {
+    outline: none;
+}
