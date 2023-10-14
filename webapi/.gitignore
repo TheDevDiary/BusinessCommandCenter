@@ -47,8 +47,8 @@ packages/
 node_modules/
 
 # Ignore the app settings file if it contains sensitive information
-/appsettings.json
-/appsettings.Development.json
+#/appsettings.json
+#/appsettings.Development.json
 
 # Ignore Entity Framework Migrations
 /Migrations
