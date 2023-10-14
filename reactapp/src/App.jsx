@@ -17,7 +17,7 @@ export default class App extends Component {
         return (
             <Router>
                 <div className="page">
-                    <Header />
+                    {/*<Header />*/}
                     <Sidebar />
                     <Routes>
                         <Route exact path='/' element={<Home />}></Route>

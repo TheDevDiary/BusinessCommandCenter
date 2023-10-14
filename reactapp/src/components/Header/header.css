@@ -1,6 +1,7 @@
 .header {
     position: absolute;
     right: 0;
+    width: unset;
 }
 
 .tool-bar {
