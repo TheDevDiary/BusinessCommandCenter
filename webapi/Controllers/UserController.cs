@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto.Generators;
 using webapi.Data;
 using webapi.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace webapi.Controllers
 {
@@ -38,15 +43,44 @@ namespace webapi.Controllers
             return user;
         }
 
-        // POST: api/Users
-        [HttpPost]
-        public ActionResult<User> CreateUser(User user)
+        // POST: api/Users/Register
+        [HttpPost("Register")]
+        public ActionResult<User> Register(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            try
+            {
+                // Add registration logic here, such as validating input, hashing passwords, etc.
+                // For simplicity, let's assume you hash the password using a function called HashPassword.
+                user.Password = HashPassword(user.Password);
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+                _context.Users.Add(user);
+                _context.SaveChanges();
+
+                return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Registration failed: " + ex.Message);
+            }
         }
+
+        // Helper function to hash the password (you need to implement this)
+        private string HashPassword(string password)
+        {
+            using (var sha256 = new System.Security.Cryptography.SHA256Managed())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashedBytes.Length; i++)
+                {
+                    builder.Append(hashedBytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+
 
         // PUT: api/Users/{id}
         [HttpPut("{id}")]
