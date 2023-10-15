@@ -7,7 +7,7 @@ const RegisterForm = () => {
         lastName: '',
         email: '',
         password: '',
-        role: 'Employee',  // Set a default role or provide a way for the user to choose
+        profileImage: ''
     });
 
     const handleChange = (e) => {
@@ -17,17 +17,23 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Remove the id field from the user object
+        const { id, ...userWithoutId } = user;
+
         try {
-            const response = await fetch('https://localhost:7047/api/Users/Register', {
+            const response = await fetch('https://localhost:7047/api/User/Register', {
                 method: 'POST',
                 headers: {
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(userWithoutId)
             });
 
             if (response.ok) {
-                console.log('User registered successfully.');
+                const data = await response.json();
+                console.log('User registered successfully:', data);
             } else {
                 console.error('Registration failed:', response.statusText);
             }
@@ -35,7 +41,6 @@ const RegisterForm = () => {
             console.error('Registration failed:', error);
         }
     };
-
 
     return (
         <div>
@@ -46,11 +51,7 @@ const RegisterForm = () => {
                 <input type="text" name="lastName" value={user.lastName} onChange={handleChange} placeholder="Last Name" />
                 <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
                 <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
-                <select name="role" value={user.role} onChange={handleChange}>
-                    <option value="Employee">Employee</option>
-                    <option value="Manager">Manager</option>
-                    <option value="Admin">Admin</option>
-                </select>
+                <input type="text" name="profileImage" value={user.profileImage} onChange={handleChange} placeholder="Profile Image URL" />
                 <button type="submit">Register</button>
             </form>
         </div>

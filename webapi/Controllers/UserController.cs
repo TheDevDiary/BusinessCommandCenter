@@ -13,11 +13,11 @@ namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public UsersController(AppDbContext context)
+        public UserController(AppDbContext context)
         {
             _context = context;
         }
@@ -43,20 +43,29 @@ namespace webapi.Controllers
             return user;
         }
 
-        // POST: api/Users/Register
         [HttpPost("Register")]
-        public ActionResult<User> Register(User user)
+        public ActionResult<User> Register([FromBody] User user)
         {
             try
             {
-                // Add registration logic here, such as validating input, hashing passwords, etc.
-                // For simplicity, let's assume you hash the password using a function called HashPassword.
-                user.Password = HashPassword(user.Password);
+                // Remove the id from the request body
+                user.Id = 0;  // Or set it to some default value
 
+                // Set registration date to now
+                user.RegistrationDate = DateTime.Now;
+
+                // Assuming some default values for simplicity
+                user.IsActive = true;
+                user.Role = UserRole.Employee;
+
+                // Add the user to the context
                 _context.Users.Add(user);
+
+                // Save changes to generate the id
                 _context.SaveChanges();
 
-                return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+                // Return the registered user
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -79,8 +88,6 @@ namespace webapi.Controllers
                 return builder.ToString();
             }
         }
-
-
 
         // PUT: api/Users/{id}
         [HttpPut("{id}")]
