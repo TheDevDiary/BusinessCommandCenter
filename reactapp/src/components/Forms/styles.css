@@ -1,0 +1,19 @@
+.formContainer {
+    width: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form .input {
+    margin: 0 0 10px 0;
+}

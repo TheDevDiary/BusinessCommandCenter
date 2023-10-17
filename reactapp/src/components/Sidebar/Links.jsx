@@ -25,25 +25,25 @@ export default function Links() {
 
             <Divider />
             <List>
-                <ListItem disablePadding sx={{ display: 'block' }}>
-                    <ListItemButton
-                        component={Link}
-                        to="/"
-                        sx={{
-                            minHeight: 48,
-                            justifyContent: 'flex-start',
-                            px: 2.5,
-                            width: '100%',
-                            '&.active': {
-                                background: 'rgba(0, 0, 0, 0.1)',
-                            },
-                        }}>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Home" />
-                    </ListItemButton>
-                </ListItem>
+                {/*<ListItem disablePadding sx={{ display: 'block' }}>*/}
+                {/*    <ListItemButton*/}
+                {/*        component={Link}*/}
+                {/*        to="/"*/}
+                {/*        sx={{*/}
+                {/*            minHeight: 48,*/}
+                {/*            justifyContent: 'flex-start',*/}
+                {/*            px: 2.5,*/}
+                {/*            width: '100%',*/}
+                {/*            '&.active': {*/}
+                {/*                background: 'rgba(0, 0, 0, 0.1)',*/}
+                {/*            },*/}
+                {/*        }}>*/}
+                {/*        <ListItemIcon>*/}
+                {/*            <InboxIcon />*/}
+                {/*        </ListItemIcon>*/}
+                {/*        <ListItemText primary="Home" />*/}
+                {/*    </ListItemButton>*/}
+                {/*</ListItem>*/}
 
                 <ListItem disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
@@ -189,55 +189,3 @@ export default function Links() {
     );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//export default function Sidebar() {   
-//    return (
-//        <Box sx={{ display: 'flex' }}>
-//            <CssBaseline />
-            
-//            <Divider />
-//            <List>
-//                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-//                    <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-//                        <ListItemButton
-//                            sx={{
-//                                minHeight: 48,
-//                                justifyContent: open ? 'initial' : 'center',
-//                                px: 2.5,
-//                            }}
-//                        >
-//                            <ListItemIcon
-//                                sx={{
-//                                    minWidth: 0,
-//                                    mr: open ? 3 : 'auto',
-//                                    justifyContent: 'center',
-//                                }}
-//                            >
-//                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-//                            </ListItemIcon>
-//                            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-//                        </ListItemButton>
-//                    </ListItem>
-//                ))}
-//            </List>
-//        </Box>
-//    );
-//}

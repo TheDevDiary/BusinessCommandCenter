@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Sidebar from '../components/Sidebar/Sidebar';
+import Header from '../components/Header/Header';
+import '../assets/styles.css';
 
-export default function CRM() {
-  return (
-      <div>
-          <h1>CRM</h1>
-      </div>
-  );
-}
+const CRM = () => {
+
+    return (
+        <div className="crm">
+
+            <Sidebar />
+            <div className="container">
+                <Header />
+                <p>CRM</p>
+            </div>
+
+        </div>
+    );
+};
+
+export default CRM;

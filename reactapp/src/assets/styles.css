@@ -1,8 +1,10 @@
-.page {
-    display: flex;
+.page, .dashboard, .crm {
     height: 100vh;
+    width: 100%;
+    display: flex;
 }
 
-.homePage {
+
+.container {
     width: 100%;
 }

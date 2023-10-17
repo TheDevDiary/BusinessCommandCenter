@@ -14,7 +14,7 @@ namespace webapi.Models
         public DateTime RegistrationDate { get; set; }
         public bool IsActive { get; set; }
         public UserRole Role { get; set; }
-        public string ProfileImage { get; set; }
+        public string AuthToken { get; set; }
     }
 
     public enum UserRole

@@ -11,14 +11,15 @@ import HR from './pages/HR';
 import Projects from './pages/Projects';
 import './assets/styles.css'
 import Header from './components/Header/Header';
+import RegisterForm from './components/Forms/RegistrationForm';
+import LoginForm from './components/Forms/LoginForm';
 
 export default class App extends Component {
     render() {
         return (
             <Router>
                 <div className="page">
-                    {/*<Header />*/}
-                    <Sidebar />
+                   
                     <Routes>
                         <Route exact path='/' element={<Home />}></Route>
                         <Route exact path='/dashboard' element={<Dashboard />}></Route>
@@ -28,6 +29,9 @@ export default class App extends Component {
                         <Route exact path='/Transactions' element={<Transactions />}></Route>
                         <Route exact path='/HR' element={<HR />}></Route>
                         <Route exact path='/Projects' element={<Projects />}></Route>
+
+                        <Route exact path='/register' element={<RegisterForm />}></Route>
+                        <Route exact path='/login' element={<LoginForm />}></Route>
                     </Routes>
                 </div>                
             </Router>
