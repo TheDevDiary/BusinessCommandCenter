@@ -22,9 +22,6 @@ function Header({ user }) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -38,7 +35,7 @@ function Header({ user }) {
     };
 
     const handleLogout = async () => {
-        history('/login');
+        history('/');
         //try {
         //    if (!user) {
         //        console.error('User information not available.');
@@ -119,7 +116,7 @@ function Header({ user }) {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Suki" src="" />
                             </IconButton>
                         </Tooltip>
                         <Menu
